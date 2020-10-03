@@ -2,9 +2,9 @@ class CreatePersonWebhooks < ActiveRecord::Migration[6.0]
   def change
     create_table :person_webhooks do |t|
       t.bigint :nb_signup_id
-      t.string :tags, :string, array: true, default: '{}'
-      t.string :actual_latest_tags, :string, array: true, default: '{}'
-      t.string :missing_tags, :string, array: true, default: '{}'
+      t.string :tags, array: true, default: '{}'
+      t.string :actual_latest_tags, array: true, default: '{}'
+      t.string :missing_tags, array: true, default: '{}'
       t.boolean :has_missing_tags, null: false, default: false
 
       t.timestamps
