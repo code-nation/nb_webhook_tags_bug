@@ -12,7 +12,7 @@ class WebhooksController < ApplicationController
     ###
     ## This is the NB profile's actual data at the current point in time
     ###
-    endpoint_data = Nb::People::Show.call(nb_signup_id)
+    endpoint_data = NbPeople::Show.call(nb_signup_id)
     endpoint_tags = endpoint_data.nil? ? [] : endpoint_data[:tags]
     missing_tags = (endpoint_tags - webhook_tags)
 
