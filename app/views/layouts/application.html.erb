@@ -10,6 +10,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main role="main">
+      <%= render 'shared/flash' %>
+      <%= yield %>
+    </main>
   </body>
 </html>
