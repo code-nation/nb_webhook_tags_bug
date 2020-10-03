@@ -1,24 +1,22 @@
-# README
+# NationBuilder Webhook Tags Bug
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple Rails app to demonstrate the bug where a profile's tag data is often out-of-date (i.e. some tags are missing) in NationBuilder's `person_changed` webhook
 
-Things you may want to cover:
+### Setup Notes
 
-* Ruby version
+1. Complete the standard Rails configuration process:
+    - `bundle install`
+    - `rails db:create`
+    - `raile db:migrate`
 
-* System dependencies
+2. Run `rails credentials:edit` and set values for the following two variables:
+    - nation_slug
+    - nation_token
 
-* Configuration
+3. Deploy your version of this app
+    - You'll need to add a `RAILS_MASTER_KEY` environment variable (using the value found in your local `config/master.key` file)
+    - We're currently running an example here: https://nb-webhook-tags-bug.herokuapp.com
 
-* Database creation
+4. Add a `person_changed` webhook in your nation pointing to the `/webhooks/person_changed` path of your new app deployment
+    - Webhooks can be created for development nations using the following link structure: https://YOUR_NATION_SLUG.nationbuilder.com/admin/webhooks/new
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
